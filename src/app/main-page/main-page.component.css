@@ -1,0 +1,19 @@
+#navbarSupportedContent {
+    display: inline-flex;
+    float: right;
+}
+
+
+.filterSection {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* To place it at the right side */
+    padding: 10px;
+}
+
+.searchsection {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}

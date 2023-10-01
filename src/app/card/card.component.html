@@ -1,0 +1,15 @@
+<div class="col mb-5 h-100 py-4" *ngIf="cardData">
+    <div class="card h-100">
+        <img class="card-img-top" [src]="cardData.urlToImage" #img alt="..." (error)="img.src = defaultImg" />
+        <div class="card-body p-4">
+            <div class="text-center">
+                <h5 class="fw-bolder">{{cardData.title}}</h5>
+                {{cardData.description}}
+            </div>
+        </div>
+        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+            <div class="text-left"><a class="mt-auto" [href]="cardData.url" target="_blank">More Info</a>
+            </div>
+        </div>
+    </div>
+</div>

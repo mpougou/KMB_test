@@ -1,0 +1,29 @@
+<div class="container pt-5 filterSection">
+    <div class="searchsection">
+        <i class="fa fa-search"></i>
+        <input type="text" class="form-control form-input" placeholder="Search Channels" #inputName
+            (keyup)="filterByName(inputName.value)" queryParamsHandling="merge">
+    </div>
+    <div ngbDropdown>
+        <button class="btn btn-warning" id="gfg" ngbDropdownToggle>Choose Category</button>
+        <div ngbDropdownMenu="gfg">
+            <button ngbDropdownItem *ngFor="let cat of categories" (click)="getCardData(currentPage,cat)"
+                [routerLink]="['/']" [queryParams]="{category: cat.length ? cat:  null}"
+                queryParamsHandling="merge">{{cat | uppercase}} </button>
+        </div>
+
+    </div>
+</div>
+
+<section>
+    <div class="container px-4 px-lg-4 mt-5">
+        <div class="row gx-4 gx-lg-4row-cols-1 row-cols-md-2 row-cols-xl-3 justify-content-center">
+
+            <app-card *ngFor="let card of cards" [cardData]="card"></app-card>
+
+        </div>
+    </div>
+</section>
+
+<app-pagination *ngIf="totalResults" [totalResults]="totalResults" (onPageChange)="onPageChange($event)"
+    [cardsPerPage]="getCardsPerPage()" [page]="currentPage"></app-pagination>
